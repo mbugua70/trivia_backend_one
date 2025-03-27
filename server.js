@@ -11,7 +11,15 @@ const MONGODB_STRING = process.env.MONGODB_STRING;
 // express app
 const app = express();
 
-app.use(cors());
+// app.use(cors());
+const corsOptions = {
+  origin: '*', // You might want to change this to a specific domain in production for security reasons
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'], // Explicitly allow PATCH
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow Content-Type and Authorization headers
+};
+
+app.use(cors(corsOptions));
+
 
 // connecting to the database
 
