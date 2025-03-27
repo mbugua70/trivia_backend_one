@@ -19,7 +19,7 @@ const userSchema = new Schema(
       unique: true,
     },
     score: {
-      type: Number,
+      type: String,
     },
   },
   { timestamps: true }
