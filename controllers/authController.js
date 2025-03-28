@@ -2,16 +2,11 @@ const questionsModel = require("../models/quizData");
 
 const mongoose = require("mongoose");
 
-// handling errors
-// const  handleErrors = (err)=> {
-//   let errors = {title: '', reps: '', load:''}
-// }
-// controllers functions
+
 
 // workOut all
 module.exports.question_get_all = async (req, res) => {
-  // const user_id = req.user._id;
-  // console.log(user_id);
+
 
   try {
     const allQuestions = await questionsModel.aggregate([
