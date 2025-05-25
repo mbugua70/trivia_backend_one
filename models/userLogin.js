@@ -21,11 +21,14 @@ const userSchema = new Schema(
     score: {
       type: String,
     },
+    questionscore: {
+      type: [],
+    }
   },
   { timestamps: true }
 );
 
-userSchema.statics.SignUp = async function (name, phone, score) {
+userSchema.statics.SignUp = async function (name, phone, score, questionscore) {
   // validation
   if (!name || !phone) {
     throw Error("All fields must be filled");
@@ -37,7 +40,7 @@ userSchema.statics.SignUp = async function (name, phone, score) {
     throw Error("You have already played");
   }
 
-  const user = await this.create({ name, phone, score });
+  const user = await this.create({ name, phone, score, questionscore });
 
   return user;
 };
