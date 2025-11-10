@@ -58,10 +58,7 @@ module.exports.signUpUser = async (req, res) => {
     res.status(400).json({ error });
   }
 };
-
 module.exports.player_update = async (req, res) => {
-  //   res.json({ msg: "Update workout" });
-
   try {
     const paramsID = req.params.id;
     const updatedValue = req.body;
