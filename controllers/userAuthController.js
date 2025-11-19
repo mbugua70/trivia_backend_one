@@ -17,7 +17,7 @@ const createToken = ({ _id }) => {
 const handleErrors = (err) => {
   console.log(err, "error happend");
 
-  let errors = { phone: "", name: "", validate: "", played: "" };
+  let errors = { name: "", validate: "", played: "" };
 
   // if (err.message.includes("Please insert phone number")) {
   //   errors.phone = "Please insert phone number";
