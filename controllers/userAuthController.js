@@ -19,13 +19,13 @@ const handleErrors = (err) => {
 
   let errors = { phone: "", name: "", validate: "", played: "" };
 
-  if (err.message.includes("Please insert phone number")) {
-    errors.phone = "Please insert phone number";
-  }
+  // if (err.message.includes("Please insert phone number")) {
+  //   errors.phone = "Please insert phone number";
+  // }
 
-  if (err.message.includes("Cast to Number failed for value")) {
-    errors.phone = "Please insert correct phone number";
-  }
+  // if (err.message.includes("Cast to Number failed for value")) {
+  //   errors.phone = "Please insert correct phone number";
+  // }
   if (err.message.includes("All fields must be filled")) {
     errors.validate = "All fields must be filled ";
   }
@@ -38,22 +38,20 @@ const handleErrors = (err) => {
     errors.name = "Please insert name";
   }
 
-
-
   return errors;
 };
 
 module.exports.signUpUser = async (req, res) => {
-  const { name, phone,email, score } = req.body;
+  const { name, score } = req.body;
 
   try {
-    const user = await UserModel.SignUp(name, phone,email, score);
+    const user = await UserModel.SignUp(name,  score);
     console.log(user, "user login");
     const userId = user._id;
     const token = createToken(user._id);
     res.status(200).json({ userId, token });
   } catch (err) {
-    console.log(err, "error logs")
+    console.log(err, "error logs");
     const error = handleErrors(err);
     res.status(400).json({ error });
   }
